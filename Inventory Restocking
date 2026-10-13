@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string Products[5] = { "Apples", "Oranges", "Bananas", "Bread", "Milk" };
+    long int Quantity[5] = { 100, 80, 60, 50, 100 };
+    long int quantity;
+    string product_name;
+    char proceed = 'Y';
+
+    while (proceed == 'Y' || proceed == 'y') {
+
+        cout << "1. Apples\n2. Oranges\n3. Bananas\n4. Bread\n5. Milk" << endl;
+        cout << "Enter the product name to restock: ";
+        cin >> product_name;
+        cout << endl;
+
+        if (product_name != "Apples" && product_name != "apples" &&
+            product_name != "Oranges" && product_name != "oranges" &&
+            product_name != "Bananas" && product_name != "bananas" &&
+            product_name != "Bread" && product_name != "bread" &&
+            product_name != "Milk" && product_name != "milk") {
+
+            cout << "Error: Product " << product_name
+                << " not found in inventory. Please enter a valid product name."
+                << endl;
+        }
+        else {
+            cout << "Enter the quantity to restock: ";
+            cin >> quantity;
+            cout << endl;
+
+            if (quantity <= 0) {
+                cout << "Error: Invalid quantity. Please enter a positive number." << endl;
+            }
+            else if (product_name == "Apples" || product_name == "apples") {
+                Quantity[0] += quantity;
+                cout << "Product successfully restocked!" << endl;
+            }
+            else if (product_name == "Oranges" || product_name == "oranges") {
+                Quantity[1] += quantity;
+                cout << "Product successfully restocked!" << endl;
+            }
+            else if (product_name == "Bananas" || product_name == "bananas") {
+                Quantity[2] += quantity;
+                cout << "Product successfully restocked!" << endl;
+            }
+            else if (product_name == "Bread" || product_name == "bread") {
+                Quantity[3] += quantity;
+                cout << "Product successfully restocked!" << endl;
+            }
+            else if (product_name == "Milk" || product_name == "milk") {
+                Quantity[4] += quantity;
+                cout << "Product successfully restocked!" << endl;
+            }
+        }
+
+        cout << "\nCurrent Inventory:" << endl;
+
+        for (int i = 0; i < 5; i++) {
+            cout << i + 1 << ". " << Products[i]
+                << ": " << Quantity[i] << " units" << endl;
+        }
+
+        cout << "\nWould you like to restock another product? (Y/N): ";
+        cin >> proceed;
+        cout << endl;
+    }
+
+    cout << "Exiting the program. Thank you!" << endl;
+
+    return 0;
+}
