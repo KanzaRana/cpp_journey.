@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	float body_temperature;
+	cout << "Enter the body temperature in Celcius: " << endl;
+	cin >> body_temperature;
+
+	if (body_temperature < 36.5)
+		cout << "You have Hypothermia, consult a doctor" << endl;
+	else if (body_temperature >= 36.5 && body_temperature < 37.5)
+		cout << "Nornal body temperature" << endl;
+	else if (body_temperature >= 37.5 && body_temperature < 38.5)
+		cout << "You have low grade fever, take plenty of fluids" << endl;
+	else if (body_temperature >= 38.5)
+		cout << "Yuor body fever is significantly elevated, Consult a doctor urgently. " << endl;
+
+	return 0;
+}
